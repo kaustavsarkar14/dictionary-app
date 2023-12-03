@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 const History = () => {
     const historyWords = useSelector(state => state.historyReducers)
-    console.log(historyWords)
     return (
         <div className='history' >
             <h3>Search History</h3>

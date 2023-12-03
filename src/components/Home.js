@@ -1,7 +1,7 @@
 import { Button, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { searchWord } from '../redux/actions/searchActions'
+import { clearSearch, searchWord } from '../redux/actions/searchActions'
 import Card from './Card'
 import { addToHistory } from '../redux/actions/historyActions'
 import { LoadingButton } from '@mui/lab'
@@ -11,8 +11,11 @@ const Home = () => {
   const [isLoading, setLoading] = useState(false)
   const searchResult = useSelector(state => state.searchReducer)
   const dispatch = useDispatch()
-  console.log(searchResult)
+ 
 
+  useEffect(()=>{
+    dispatch(clearSearch())
+  },[])
   useEffect(() => {
     setLoading(false)
   }, [searchResult])
@@ -22,7 +25,7 @@ const Home = () => {
     dispatch(searchWord(searchTerm))
     dispatch(addToHistory(searchTerm))
   }
-  console.log(searchResult)
+
   return (
     <>
       <div className='input-box'>

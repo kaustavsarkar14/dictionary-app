@@ -14,7 +14,9 @@ const Word = () => {
     useEffect(() => {
         dispatch(searchWord(word))
     }, [])
-    console.log(result)
+  
+    
+    if(result[0]=='error') return <p style={{textAlign:"center", margin:"2rem"}} >No result found</p>
     return (
         <div>
             {

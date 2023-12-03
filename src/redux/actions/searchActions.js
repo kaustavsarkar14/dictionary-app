@@ -1,4 +1,4 @@
-import { SEARCH_WORD_FAILURE, SEARCH_WORD_SUCCESS } from "./actionTypes"
+import { CLEAR_SEARCH, SEARCH_WORD_FAILURE, SEARCH_WORD_SUCCESS } from "./actionTypes"
 
 export const searchWord = (query)=>{
     return async (dispatch)=>{
@@ -22,6 +22,12 @@ export const searchWord = (query)=>{
                 payload : err.message
             })
         }
+    }
+}
+
+export const clearSearch = ()=>{
+    return {
+        type : CLEAR_SEARCH,
     }
 }
 
